@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting to Shortcuts</title>
+    <script>
+        // クエリパラメータからtextを取得
+        const urlParams = new URLSearchParams(window.location.search);
+        const inputText = urlParams.get('text') || 'default%20text';
+        // textを二重エンコード
+        const doubleEncodedText = encodeURIComponent(inputText);
+        // Shortcuts URLを生成
+        const shortcutUrl = `shortcuts://run-shortcut?name=link_twitter&input=text&text=${doubleEncodedText}`;
+        // リダイレクト
+        window.location.href = shortcutUrl;
+    </script>
+</head>
+<body>
+    <p>ショートカットにリダイレクト中...</p>
+</body>
+</html>
